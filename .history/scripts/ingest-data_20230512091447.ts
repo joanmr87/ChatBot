@@ -11,7 +11,6 @@ const filePath = 'docs';
 
 export const run = async () => {
   try {
-    console.log('Loading raw docs from the all files in the directory...');
     /*load raw docs from the all files in the directory */
     const directoryLoader = new DirectoryLoader(filePath, {
       '.pdf': (path) => new CustomPDFLoader(path),
@@ -19,9 +18,7 @@ export const run = async () => {
 
     // const loader = new PDFLoader(filePath);
     const rawDocs = await directoryLoader.load();
-    console.log('Loaded raw docs', rawDocs);
 
-    console.log('Splitting text into chunks...');
     /* Split text into chunks */
     const textSplitter = new RecursiveCharacterTextSplitter({
       chunkSize: 1000,
@@ -29,9 +26,9 @@ export const run = async () => {
     });
 
     const docs = await textSplitter.splitDocuments(rawDocs);
-    console.log('Split docs', docs);
+    console.log('split docs', docs);
 
-    console.log('Creating vector store...');
+    console.log('creating vector store...');
     /*create and store the embeddings in the vectorStore*/
     const embeddings = new OpenAIEmbeddings();
     const index = pinecone.Index(PINECONE_INDEX_NAME); //change to your own index name
@@ -42,13 +39,11 @@ export const run = async () => {
       namespace: PINECONE_NAME_SPACE,
       textKey: 'text',
     });
-    console.log('Created vector store');
   } catch (error) {
     console.log('error', error);
     throw new Error('Failed to ingest your data');
   }
 };
-
 
 (async () => {
   await run();
