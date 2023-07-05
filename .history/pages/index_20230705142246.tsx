@@ -25,7 +25,7 @@ export default function Home() {
   }>({
     messages: [
       {
-        message: 'Hi there, how can I help you?',
+        message: 'Hi, what would you like to learn about this legal case?',
         type: 'apiMessage',
       },
     ],
@@ -150,7 +150,7 @@ export default function Home() {
                     icon = (
                       <Image
                         key={index}
-                        src="/Screenshot 2023-07-04 133658.png"
+                        src="/usericon.png"
                         alt="Me"
                         width="30"
                         height="30"
@@ -224,7 +224,7 @@ export default function Home() {
                     placeholder={
                       loading
                         ? 'Waiting for response...'
-                        : 'What do you want to know about Patagonian?'
+                        : 'What is this legal case about?'
                     }
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}

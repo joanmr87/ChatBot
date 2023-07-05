@@ -25,7 +25,7 @@ export default function Home() {
   }>({
     messages: [
       {
-        message: 'Hi there, how can I help you?',
+        message: 'Hi, what would you like to learn about this legal case?',
         type: 'apiMessage',
       },
     ],
@@ -137,7 +137,7 @@ export default function Home() {
                     icon = (
                       <Image
                         key={index}
-                        src="/Screenshot 2023-07-05 141742.png"
+                        src="/DALL·E 2023-07-04 13.32.54 - add a helmet visor that is a black screen and that eyes of joy are reflected in it in 8 pixels.png"
                         alt="AI"
                         width="40"
                         height="40"
@@ -150,7 +150,7 @@ export default function Home() {
                     icon = (
                       <Image
                         key={index}
-                        src="/Screenshot 2023-07-04 133658.png"
+                        src="/usericon.png"
                         alt="Me"
                         width="30"
                         height="30"
@@ -224,7 +224,7 @@ export default function Home() {
                     placeholder={
                       loading
                         ? 'Waiting for response...'
-                        : 'What do you want to know about Patagonian?'
+                        : 'What is this legal case about?'
                     }
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}

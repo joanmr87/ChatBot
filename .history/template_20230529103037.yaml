@@ -1,0 +1,18 @@
+Resources:
+  YourFunctionName:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: path/to/your/code # Ruta al código de tu función Lambda
+      Handler: pages/api/chat.handler # El nombre de tu archivo y función handler
+      Runtime: nodejs14.x # La versión de Node.js que estás utilizando
+      Environment:
+        Variables:
+          PINECONE_API_KEY: your-pinecone-api-key # Variables de entorno requeridas por tu código
+          PINECONE_ENVIRONMENT: your-pinecone-environment
+          PINECONE_INDEX_NAME: your-pinecone-index-name
+      Events:
+        YourApiEventName:
+          Type: Api # El evento que desencadenará tu función Lambda (en este caso, una API Gateway)
+          Properties:
+            Path: /your-api-path # La ruta de la API que desees utilizar
+            Method: post # El método HTTP que deseas utilizar (en este caso, POST)
