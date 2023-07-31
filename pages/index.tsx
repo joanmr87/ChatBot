@@ -25,7 +25,7 @@ export default function Home() {
   }>({
     messages: [
       {
-        message: 'Hi there, how can I help you?',
+        message: 'Hola, soy PIWE, en que puedo ayudarte?',
         type: 'apiMessage',
       },
     ],
